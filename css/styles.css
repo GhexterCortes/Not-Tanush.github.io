@@ -1,0 +1,361 @@
+/*
+    Designed by: Ghexter Cortes
+    Color scheme by: Tanush Vardhan Kapoor
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Spline+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #E27D60;
+    --secondary: #F8CECE;
+    --dimmed: #b96b55;
+    --light: #f8f8f8;
+    --dark: #1d1d1d;
+    --black: #000;
+    --white: #fff;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Spile Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Loading Screen */
+.loading-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    z-index: 9999;
+    transition: all 0.2s ease-in-out;
+}
+.loading-screen > i{
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Space Mono', monospace;
+    color: var(--dark);
+}
+.loading-screen.loaded{
+    top: -100%;
+}
+
+/* Page */
+.page{
+    position: relative;
+    width: 100%;
+}
+.page.page-overflow{
+    overflow: hidden;
+}
+.page.page-fullheight{
+    min-height: 500px;
+    height: 100%;
+}
+.page > .page-topbar{
+    position: relative;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+.page > .page-topbar > *::after{
+    content: '';
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10%;
+    height: 4px;
+    background: var(--primary);
+}
+.page > .page-topbar > *{
+    margin: 0;
+    padding: 1rem;
+    color: var(--dark);
+}
+.page > .page-banner{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.page > .page-banner > .page-banner-container{
+    z-index: 2;
+    margin-bottom: 10rem;
+}
+.page > .page-banner > .page-banner-container .page-banner-title{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-family: 'Space Mono', monospace;
+}
+.page > .page-banner > .page-banner-container .page-banner-subtitle{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--white);
+    font-family: 'Space Mono', monospace;
+}
+.page > .page-banner > .page-banner-container .page-banner-subtitle > span{
+    display: inline-block;
+    margin: 0 1rem;
+}
+.page > .page-banner > .page-scroll-down-button{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 3rem;
+    border: 2px solid var(--dark);
+    background: var(--primary);
+    color: var(--dark);
+    transition: all 0.2s ease-in-out;
+}
+.page > .page-banner > .page-scroll-down-button:hover,
+.page > .page-banner > .page-scroll-down-button:focus{
+    border-color: var(--black);
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/** Card */
+.cards{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.cards > .cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+}
+.cards > .cards-container > .card{
+    display: flex;
+    margin: .5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 100px -50px var(--dark);
+}
+.cards > .cards-container > .card > .card-thumbnail{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 300px;
+    flex-shrink: 0;
+    background-color: var(--primary);
+}
+.cards > .cards-container > .card > .card-thumbnail > .card-thumbnail-display{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    margin: 100px;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--dimmed);
+}
+.cards > .cards-container > .card > .card-container{
+    display: block;
+    padding: 1rem;
+}
+.cards > .cards-container > .card > .card-container .card-title{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dimmed);
+    margin-bottom: 1rem;
+    word-break: break-word;
+    font-family: 'Space Mono', monospace;
+}
+.cards > .cards-container > .card > .card-container .card-content{
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--dark);
+    font-family: 'Spile Sans', monospace;
+}
+
+/* Home */
+.home{
+    background-color: var(--primary);
+    color: var(--dark);
+}
+.home > .home-background{
+    background-image: url('/images/pexels-jason-toevs-2033336.jpg');
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+}
+.home > .home-background::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+.home > .home-background::before{
+    content: '';
+    position: absolute;
+    top: 85%;
+    left: 0;
+    transform: rotate(-3deg);
+    width: 150%;
+    height: 30%;
+    z-index: 1;
+    background-color: var(--primary);
+}
+
+/* About */
+.about{
+    background: var(--light);
+    color: var(--dimmed);
+}
+.about > .about-top-border{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 25px;
+}
+.about > .about-top-border::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    width: 150%;
+    height: 100px;
+    background-color: var(--primary);
+    transform: rotate(-3deg);
+}
+
+/* Footer */
+.footer{
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    background-color: var(--dark);
+    padding: 2rem;
+    color: var(--light);
+}
+.footer > p{
+    margin-bottom: 0.1rem;
+}
+.footer > p.credits{
+    opacity: 0.9;
+}
+.footer > p.name{
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-family: 'Space Mono', monospace;
+}
+.footer > p.name > span{
+    display: inline-block;
+}
+.footer > p.name > a{
+    color: var(--light);
+    text-decoration: none;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+.footer > p.name > a::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+}
+.footer > p.name > a:hover,
+.footer > p.name > a:focus{
+    color: var(--primary);
+}
+.footer > p.helper-name.name{
+    font-size: 0.8rem;
+    font-weight: 800;
+    font-family: 'Space Mono', monospace;
+}
+.footer > p.owner-name.name:hover{
+    color: var(--primary);
+}
+.footer > p .fa.fa-heart{
+    color: var(--primary);
+    transition: all 0.1s ease-in-out;
+}
+.footer > p .fa.fa-heart:hover{
+    transform: scale(1.2) rotate(5deg);
+}
+
+@media (max-width: 690px){
+    .cards{
+        width: 100%;
+    }
+    .cards > .cards-container > .card{
+        flex-direction: column;
+    }
+    .cards > .cards-container > .card > .card-thumbnail{
+        width: 100%;
+        height: 300px;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+    .cards > .cards-container > .card > .card-thumbnail > .card-thumbnail-display{
+        margin: 0;
+    }
+}
