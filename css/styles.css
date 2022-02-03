@@ -132,9 +132,11 @@ a {
     color: var(--white);
     font-family: 'Space Mono', monospace;
 }
-.page > .page-banner > .page-banner-container .page-banner-subtitle > span{
+.page > .page-banner > .page-banner-container .page-banner-subtitle > span,
+.page > .page-banner > .page-banner-container .page-banner-subtitle > a{
     display: inline-block;
     margin: 0 1rem;
+    color: currentColor;
 }
 .page > .page-banner > .page-scroll-down-button{
     position: absolute;
